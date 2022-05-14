@@ -3,7 +3,7 @@ import axios from "axios";
 import React from "react";
 
 function Users() {
-  const [users, setUsers] = React.useState([]);
+  const [users, setUsers] = React.useState<any>([]);
   const [userName, setUserName] = React.useState("");
 
   const fetchUsers = async () => {
@@ -43,7 +43,7 @@ function Users() {
       // setUsers((prev) => [...prev, res.data])
       // setUsers([...users, res.data]); 
       //You may express in all these ways
-         setUsers([res.data, ...users]);
+         setUsers((prev:any) => [...prev, res.data]);
 
     })
     .catch((err) => console.log(err));
